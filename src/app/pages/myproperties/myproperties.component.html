@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <table class="table p-5">
+    <thead>
+      <tr>
+        <th scope="col">Images</th>
+        <th scope="col">Price</th>
+        <th scope="col">Property Name/Type</th>
+        <th scope="col">Location</th>
+        <th scope="col">Owner Phone</th>
+        <th scope="col">Edit/Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    @if (nodata) {
+      <div class="d-flex">  
+        <h1 class="text-center">No data found</h1>
+      </div>
+    }
+    <tbody>
+      <!-- <h1 *ngIf="nodata">No data found</h1> -->
+    
+      <tr *ngFor="let property of properties">
+        <td>
+          <div id="propertyCarousel{{property._id}}" class="carousel slide">
+            <div class="carousel-inner">
+              <div *ngFor="let image of property.images; let i = index" class="carousel-item" [class.active]="i === 0">
+                <img 
+                  [src]="image"
+                  style="height: 40px !important;"
+                  class="d-block w-100 carousel-image"
+                  alt="{{ property.title }}"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="javascript:void(0)" (click)="prevSlide(property._id)" role="button">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="javascript:void(0)" (click)="nextSlide(property._id)" role="button">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+          </div>
+        </td>
+        <td><p class="card-text">{{ property.price | currency }}</p></td>
+        <td><p class="card-text">{{property.title}}/{{ property.propertyType }}</p></td>
+        <td>{{ property.location.coordinates[1] }}, {{ property.location.coordinates[0] }}</td>
+        <td>{{ property.ownerPhone }}</td>
+        <td>
+          <button class="btn btn-danger p-3" (click)="editproperty(property._id)">
+            <img src="/edit.svg" alt="Edit" height="20px">
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger p-3"  (click)="deletepmyproperty(property._id)">
+            <img src="/delete.svg" alt="Delete" height="20px">
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add some basic styles -->
+<style>
+  .carousel-inner img {
+    width: 300px; /* Fixed width for images */
+    height: 200px; /* Fixed height to maintain consistency */
+    object-fit: cover; /* Ensures images retain aspect ratio without distorting */
+    margin: 0 auto; /* Centers the image */
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+</style>
