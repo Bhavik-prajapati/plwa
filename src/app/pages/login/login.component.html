@@ -6,6 +6,7 @@
             <input type="email" class="form-control mb-2" [(ngModel)]="userdata.email" name="email" placeholder="email">
             <input type="password" class="form-control mb-2" [(ngModel)]="userdata.password" name="password" placeholder="password">
             <button class="btn btn-primary w-100" (click)="login()">Login</button>
+            <button (click)="loginWithGoogle()">Login with Google</button>
             <br>
             <p class="text-center">
             <a class="text-center text-decoration-none" href="/signup">Signup</a>

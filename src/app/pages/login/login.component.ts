@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './login.service';
 import { JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { HeaderComponent } from "../../components/header/header.component";
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +29,11 @@ export class LoginComponent {
       this.router.navigateByUrl("home");
     }
   }
+
+    loginWithGoogle() {
+      window.location.href = 'http://localhost:5000/auth/google';
+    }
+
 
   login() {
     console.log(this.userdata);
