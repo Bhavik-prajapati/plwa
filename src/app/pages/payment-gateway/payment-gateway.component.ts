@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PaymentService } from './payment.service';
-// import { environment } from '../../../environments/environment';
+// import { environment } from '../';
+import { environment } from '../../../environments/environments';
+
 
 declare var Razorpay: any;
 @Component({
@@ -15,7 +17,10 @@ declare var Razorpay: any;
 export class PaymentGatewayComponent {
   amount: number = 500; // Default amount in INR
 
-  constructor(private paymentService: PaymentService) { }
+  
+  constructor(private paymentService: PaymentService) { 
+    console.log(environment.appName,"appbname")
+  }
 
   initiatePayment(): void {
     const orderData = {
@@ -26,7 +31,7 @@ export class PaymentGatewayComponent {
 
     this.paymentService.createOrder(orderData).subscribe(order => {
       const options = {
-        // key: environment.razorpayKey, // Replace with your Razorpay Key ID
+        key: environment.razorpaykeyid, // Replace with your Razorpay Key ID 
         amount: order.amount,
         currency: order.currency,
         name: 'Test Company',

@@ -1,1 +1,4 @@
 node_modules
+.angular
+.angular/cache/18.2.2/property-listing-frontend/.tsbuildinfo
+src/environments/environments.ts
