@@ -21,6 +21,10 @@ export class PostpropertyService {
     return this.http.patch(`http://localhost:5000/users/${id}`,{formData},{});
   }
 
+  getCountries() {
+    return this.http.get('http://localhost:5000/country/getCountryList', { withCredentials: true });
+  }
+
   
   
 
