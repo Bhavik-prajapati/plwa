@@ -31,17 +31,25 @@ export class PostpropertyComponent implements OnInit {
     country:'',
     state:'',
     city:'',
-    zip:''
+    zip:'',
+    phoneCode: '',
   };
   selectedFiles: File[] = [];
   router: Router;
   existingimages: any=[];
+  countries: any[] = [];
+  states: any[] = [];
+  cities: any[] = [];
+  phCodeList: any[] = [];
+  selectedCountry: any = null;
+  selectedState: any = null;
   constructor(private postproperty: PostpropertyService, router: Router,private route: ActivatedRoute) {
     this.router = router;
     
   }
 
   ngOnInit(): void {
+    this.loadCountries();
     // Access query parameters
     this.route.queryParams.subscribe(queryParams => {
       console.log(queryParams); 
@@ -68,6 +76,44 @@ export class PostpropertyComponent implements OnInit {
     }
   }
 
+  loadCountries() {
+    this.postproperty.getCountries().subscribe(
+      (countries: any) => {
+        this.countries = countries.data; 
+        this.phCodeList = this.countries.map((country: any) => country.phone_code);
+      },
+      (err) => {
+        console.error('Failed to load countries', err);
+      }
+    );
+  }
+
+  onCountryChange(country: any): void {
+    if (country && country.name) {
+      this.selectedCountry = country;
+      this.property.country = country.name;
+      this.states = country.states || [];
+    } else {
+      this.selectedCountry = null;
+      this.property.country = '';
+      this.states = [];
+      this.cities = [];
+    }
+  }
+  
+  onStateChange(state: any): void {
+    if (state && state.name) {
+      this.selectedState = state;
+      this.property.state = state.name;
+      this.cities = state.cities || [];
+    } else {
+      this.selectedState = null;
+      this.property.state = '';
+      this.cities = [];
+    }
+  }
+  
+
   onSubmit(form: NgForm) {
     if (form.valid) {
       const formData = new FormData();
@@ -88,6 +134,7 @@ export class PostpropertyComponent implements OnInit {
       formData.append('state', this.property.state);
       formData.append('city', this.property.city);
       formData.append('zip', this.property.zip);
+      formData.append('phonecode', this.property.phoneCode)
 
       this.selectedFiles.forEach((file, index) => {
         formData.append(`images`, file, file.name);
