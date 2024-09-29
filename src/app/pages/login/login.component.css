@@ -5,3 +5,29 @@ body{
     background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
     background-color: red;
 }
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+  }
+  
+  .google-btn:hover {
+    background-color: #e2a300;
+  }
+  
+  .google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
