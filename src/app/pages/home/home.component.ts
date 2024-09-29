@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   // properties: Property[] = [];
   properieslist:any;
@@ -33,6 +33,9 @@ export class HomeComponent {
     this.getalldata();
 
     homeservice.checkplan().subscribe((res)=>{console.log(res)},err=>console.log(err))
+  }
+  ngOnInit(): void {
+
   }
 
   getalldata() {

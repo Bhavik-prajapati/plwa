@@ -18,7 +18,7 @@ export class HeaderComponent {
     // {
     //   this.router.navigateByUrl("login");
     // }
-    if(token && refreshtoken){
+    if(token || refreshtoken){
       this.islogin=true;
     }
   }

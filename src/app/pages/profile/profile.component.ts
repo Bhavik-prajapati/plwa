@@ -50,6 +50,8 @@ export class ProfileComponent implements OnInit {
     // Fetch the profile data using the decoded token
     this.profileService.getprofiledata(decodedToken.user.id).subscribe(
       (res:any) => {
+        debugger;
+        console.log(decodedToken.user.id,"decoded.......")
         this.userdata = res; 
         console.log(this.userdata)
         Swal.close();
