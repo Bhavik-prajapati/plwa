@@ -89,7 +89,18 @@ export class PropertyDetailComponent implements OnInit{
     this.propertyservice.addPropertyVisited(propertyid).subscribe(
       (res: any) => {
         Swal.fire({
-          title: `Note Number: ${mobile}`
+          title: `Note Number: ${mobile}`,
+          html: '<button id="emailButton" class="btn btn-danger">Contact Through Email</button>',
+          didRender:()=>{
+            const emailButton = document.getElementById('emailButton');
+            if (emailButton) {
+              emailButton.addEventListener('click', () => {
+                // console.log("object")
+                // console.log(this.property.ownerId)
+                
+              })
+            }
+          }
         });
       },
       (err: HttpErrorResponse) => {
@@ -100,4 +111,31 @@ export class PropertyDetailComponent implements OnInit{
     );
   }
 
+
+  usermail:string='';
+  connectMail() {
+
+    this.propertyservice.getemailbyid(this.property.ownerId).subscribe((res:any)=>{
+      console.log(res)
+      this.usermail=res.email;
+    },err=>console.log(err))
+    
+    const email = this.usermail;
+    const subject = 'Hello';
+    const body = 'I wanted to reach out to you!';
+    
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+
+  // connectmail()
+  // {
+
+  //   this.propertyservice.getemailbyid(this.property.ownerId).subscribe((res:any)=>{
+  //     console.log(res)
+  //   },err=>console.log(err))
+
+  //   // this.http.get('http://localhost:5000/users').subscribe
+  //   // window.location.href = 'http://localhost:5000/auth';
+  // }
 }

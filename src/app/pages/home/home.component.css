@@ -1,0 +1,106 @@
+
+
+/* General Styles */
+.container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  input.form-control, select.form-select {
+    border: 1px solid black;
+    box-shadow: none;
+    outline: none;
+  }
+  
+  button.btn {
+    border: 1px solid black;
+    box-shadow: none;
+    outline: none;
+  }
+  
+  input.form-control, select.form-select, button.btn {
+    padding: 15px;
+  }
+  
+  /* Desktop (Large Devices) */
+  @media (min-width: 992px) {
+    .input-group {
+      width: 75%;
+    }
+  
+    input.form-control {
+      width: 20%;
+    }
+  
+    select.form-select {
+      width: 12%;
+    }
+  
+    button.btn {
+      width: 15%;
+    }
+  }
+  
+  /* Tablets (Medium Devices) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .input-group {
+      width: 90%;
+    }
+  
+    input.form-control {
+      width: 25%;
+    }
+  
+    select.form-select {
+      width: 20%;
+    }
+  
+    button.btn {
+      width: 20%;
+    }
+  }
+  
+  /* Mobile (Small Devices) */
+  @media (max-width: 767px) {
+    .input-group {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    input.form-control, select.form-select, button.btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .input-group input, .input-group select, .input-group button {
+      border-radius: 10px;
+      padding: 10px;
+    }
+  
+    button.btn {
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+  
+  /* Property List */
+  .property-list {
+    margin-top: 50px;
+  }
+  
+  .property-list .col-md-3 {
+    flex-basis: 25%;
+  }
+  
+  @media (max-width: 991px) {
+    .property-list .col-md-3 {
+      flex-basis: 50%;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .property-list .col-md-3 {
+      flex-basis: 100%;
+    }
+  }
+  
