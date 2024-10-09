@@ -7,7 +7,6 @@ export const authinterceptorInterceptor: HttpInterceptorFn = (req, next) => {
   let headers = {};
 
 if (token) {
-  debugger;
     headers = {
       ...headers,
       Authorization: `Bearer ${token}`

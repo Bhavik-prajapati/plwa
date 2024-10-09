@@ -33,4 +33,8 @@ export class PropertyDetailService {
       status: error.status
     });
   }
+
+  getemailbyid(ownerId:any){
+    return this.http.get(`http://localhost:5000/users/getemailbyid/${ownerId}`)
+  }
 }
