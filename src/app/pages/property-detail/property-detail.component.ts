@@ -90,30 +90,31 @@ export class PropertyDetailComponent implements OnInit{
       (res: any) => {
         Swal.fire({
           title: `Note Number: ${mobile}`,
-          html: '<button id="emailButton" class="btn btn-danger">Contact Through Email</button>',
-          didRender:()=>{
+          html: `<button id="emailButton" class="mt-2 p-1" style="border: none;outline: none;">
+                   <img src="gmail.png" alt="Gmail Icon" style="width: 24px; height: 24px;"> Contact via Mail
+                 </button>`,
+          didRender: () => {
             const emailButton = document.getElementById('emailButton');
             if (emailButton) {
               emailButton.addEventListener('click', () => {
-                // console.log("object")
-                // console.log(this.property.ownerId)
-                
-              })
+                this.connectMail();  // Llama a la función directamente
+              });
             }
           }
         });
       },
       (err: HttpErrorResponse) => {
-        if (err.status===400) { 
+        if (err.status === 400) { 
           this.router.navigateByUrl('plans');
         }
       }
     );
   }
-
+  
 
   usermail:string='';
   connectMail() {
+    console.log("called connect mail............")
 
     this.propertyservice.getemailbyid(this.property.ownerId).subscribe((res:any)=>{
       console.log(res)
