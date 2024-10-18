@@ -7,3 +7,126 @@ node_modules
 public/gmail.png:Zone.Identifier
 .angular/cache/18.2.2/property-listing-frontend/.tsbuildinfo
 .angular/cache/18.2.2/property-listing-frontend/.tsbuildinfo
+# ------------
+
+# Node.js dependencies
+.angular
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+/pnpm-debug.log
+/.npm
+/.yarn
+/.pnp.*
+
+# Angular build output directories
+/dist/
+/out-tsc/
+/build/
+
+# Angular cache
+/.angular/cache
+/.angular/cdk-theming
+
+# Angular CLI specific files
+.angular
+/.firebase/
+
+# Environment settings
+/src/environments/environment*.ts
+
+# Compiled TypeScript output
+/**/*.js
+/**/*.js.map
+
+# TypeScript compiled files (declaration files)
+*.d.ts
+
+# IDE and Editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Compiled binary and class files
+*.out
+*.class
+
+# Temporary files created by build processes
+/tmp/
+/temp/
+/*.bak
+
+# Coverage directory
+/coverage/
+/coverage/**/*
+*.lcov
+
+# Firebase
+/firebase/
+.firebaserc
+
+# Angular build artifacts for server-side rendering (SSR)
+/functions/node_modules/
+/server/
+
+# Optional: Ignore cache files from tools like esbuild or vite
+/.cache/
+.esbuild/
+
+# Ignore localization outputs
+/messages.xlf
+/messages/**/*.xlf
+
+# Optional: Ignore specific Angular Material theming artifacts
+/theming/generated/*.css
+
+# Git specific files
+/.git/
+.gitattributes
+.gitignore
+
+# Mac-specific temporary files
+.AppleDouble
+.LSOverride
+
+# Windows-specific temporary files
+*.stackdump
+*.cab
+*.msi
+
+# Yarn v2 files
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# JetBrains specific
+.idea/
+/.idea/modules.xml
+.idea/workspace.xml
+.idea/libraries
+
+# Optional if using Docker for development
+/docker-compose.yml
+/.dockerignore
+.angular/cache/18.2.2/property-listing-frontend/.tsbuildinfo
