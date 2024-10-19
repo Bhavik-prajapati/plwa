@@ -1,6 +1,6 @@
-// src/environments/environment.ts (for development)
 export const environment = {
-    production: false,
-    razorpayKey: '12fdjfjd3' // Replace with your Razorpay Key ID for development
-  };
-  
+  production: false,
+  apiUrl: 'http://localhost:5000/',
+  appName: 'My Angular App',
+  razorpaykeyid:'rzp_test_E6LlXaOl1uAoZf'
+};

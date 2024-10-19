@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environments';
 
 @Component({
   selector: 'app-plans',
@@ -30,7 +30,7 @@ export class PlansComponent {
     },err=>console.log(err))  
   }
 
-  razorpayKey = environment.razorpaykeyid; // Replace with your actual Razorpay key
+  razorpayKey = environment.razorpaykeyid ; // Replace with your actual Razorpay key
 
 
   basicPlan() {
