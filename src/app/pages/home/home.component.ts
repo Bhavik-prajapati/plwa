@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit{
   filteredProperties: any[] = [];
   router=inject(Router);
   searchTerm:string='';
+  sellOrRent:string='';
 
   constructor(private homeservice:HomeService){
     const token=localStorage.getItem("token");

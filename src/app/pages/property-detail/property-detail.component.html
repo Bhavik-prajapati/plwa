@@ -38,7 +38,13 @@
       <p class="card-text"><strong>Type:</strong> {{ property.propertyType }}</p>
       <p class="card-text"><strong>Price:</strong> {{ property.price | currency }}</p>
       <!-- <p class="card-text"><strong>Location:</strong> Latitude: {{ property?.location?.coordinates[1] }}, Longitude: {{ property?.location?.coordinates[0] }}</p> -->
-      <button id="viewphone" class="btn btn-danger" (click)="viewphone(property.ownerPhone,property._id)">View Phone No</button>
+      <button id="viewphone" class="btn btn-danger" style="margin-right: 5px;" (click)="viewphone(property.ownerPhone,property._id)">View Phone No</button>
+      <!-- <br> -->
+      <!-- <button (click)="connectmail()" class="btn btn-danger mt-2">connect Gmail</button> -->
+      <!-- <button (click)="connectMail()" class="mt-2 p-1" style="border: none;outline: none;">
+        <img src="gmail.png" alt="Gmail Icon" style="width: 24px; height: 24px;"> Mail Owner
+      </button> -->
+      
       <!-- <div id="mobileno"></div> -->
 
       <p class="card-text"><small class="text-muted">Posted on {{ property.createdAt | date:'mediumDate' }}</small></p>

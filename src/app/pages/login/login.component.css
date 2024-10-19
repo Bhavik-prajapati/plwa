@@ -6,7 +6,7 @@ body{
     background-color: red;
 }
 
-.google-btn {
+/* .google-btn {
     display: flex;
     align-items: center;
     background-color: white;
@@ -19,7 +19,7 @@ body{
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
-  }
+  } */
   
   .google-btn:hover {
     background-color: #e2a300;
