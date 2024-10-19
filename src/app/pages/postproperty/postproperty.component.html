@@ -1,158 +1,110 @@
-<app-header></app-header>
 
-<div class="container mt-4 mb-5">
-  <h4 class="text-center">Sell or Rent your Property</h4>
-
-  <form (ngSubmit)="onSubmit(propertyForm)" #propertyForm="ngForm">
-    <div class="mb-3">
-      <label for="title" class="form-label">Property Name</label>
-      <input type="text" id="title" class="form-control" [(ngModel)]="property.title" name="title" required />
-    </div>
-
-    <div class="mb-3">
-      <label for="description" class="form-label">Porperty Description</label>
-      <textarea id="description" class="form-control" [(ngModel)]="property.description" name="description" required></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label for="price" class="form-label">Property Price</label>
-      <input type="number" id="price" class="form-control" [(ngModel)]="property.price" name="price" required />
-    </div>
-
-    <div class="mb-3">
-      <label for="latitude" class="form-label">Latitude</label>
-      <input type="number" id="latitude" class="form-control" [(ngModel)]="property.latitude" name="latitude" required />
-    </div>
-
-    <div class="mb-3">
-      <label for="longitude" class="form-label">Longitude</label>
-      <input type="number" id="longitude" class="form-control" [(ngModel)]="property.longitude" name="longitude" required />
-    </div>
-    
-    <div class="mb-3">
-      <label for="ownerPhone" class="form-label">Phone Number: </label>
-      <div class="input-group">
-        <select class="form-select" [(ngModel)]="property.phoneCode" name="phoneCode" required style="max-width: 120px; font-size: 14px;">
-          <option value="" disabled selected>Code</option>
-          <option *ngFor="let code of phCodeList" [value]="code">{{ '+' + code }}</option>
-        </select>
-        
-        <input type="text" id="ownerPhone" class="form-control" [(ngModel)]="property.ownerPhone" name="ownerPhone" required placeholder="Enter phone number" style="flex-grow: 1;"/>
+<form>
+  <div class="row">
+      <div class="col-lg-6">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">First Name</label>
+              <div class="form-group position-relative">
+                  <input type="text" class="form-control text-dark ps-5 h-55" placeholder="Enter Name">
+                  <i class="ri-user-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-    
-
-    <div class="mb-3">
-      <label for="propertyType" class="form-label">Property Type</label>
-      <select id="propertyType" class="form-select" [(ngModel)]="property.propertyType" name="propertyType" required>
-        <option value="" disabled selected>--Choose property type--</option>
-        <option value="Rent">Rent</option>
-        <option value="Sell">Sell</option>
-        <option value="Pg">Pg</option>
-        <option value="Buy">Buy</option>
-        <option value="Lease">Lease</option>
-        <option value="Office Space">Office Space</option>
-        <option value="Warehouse">Warehouse</option>
-        <option value="Retail Space">Retail Space</option>
-        <option value="Land">Land</option>
-        <option value="Garage">Garage</option>
-        <option value="Co-working Space">Co-working Space</option>
-        <option value="Holiday Home">Holiday Home</option>
-        <option value="Industrial">Industrial</option>
-        <option value="Studio">Studio</option>
-        <option value="Penthouse">Penthouse</option>
-        <option value="Townhouse">Townhouse</option>
-        <option value="Villa">Villa</option>
-      </select>
-    </div>
-
-    <div class="mb-3">
-      <label for="images" class="form-label">Upload Images</label>
-      <input type="file" id="images" class="form-control" (change)="onFileSelected($event)" multiple />
-      <div *ngIf="selectedFiles.length > 0" class="mt-2">
-        <h6>Selected Images:</h6>
-        <ul>
-          <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
-        </ul>
+      <div class="col-lg-6">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">Last Name</label>
+              <div class="form-group position-relative">
+                  <input type="text" class="form-control text-dark ps-5 h-55" placeholder="Enter Name">
+                  <i class="ri-user-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-      <div *ngFor="let image of existingimages">
-        <img [src]="image" alt="Property Image" width="200" height="150" class="mb-2 mt-2">
+      <div class="col-lg-6">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">Email Address</label>
+              <div class="form-group position-relative">
+                  <input type="email" class="form-control text-dark ps-5 h-55" placeholder="Enter Email Address">
+                  <i class="ri-mail-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="bedrooms" class="form-label">bedrooms</label>
-        <input type="number" id="bedrooms" class="form-control" [(ngModel)]="property.bedrooms" name="bedrooms" required />
+      <div class="col-lg-6">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">Phone</label>
+              <div class="form-group position-relative">
+                  <input type="number" class="form-control text-dark ps-5 h-55" placeholder="Enter Phone Number">
+                  <i class="ri-phone-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="hall" class="form-label">hall</label>
-        <input type="number" id="hall" class="form-control" [(ngModel)]="property.hall" name="hall" required />
+      <div class="col-lg-12">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">Address</label>
+              <div class="form-group position-relative">
+                  <input type="number" class="form-control text-dark ps-5 h-55" placeholder="Your Location">
+                  <i class="ri-map-pin-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="kitchens" class="form-label">kitchens</label>
-        <input type="number" id="kitchens" class="form-control" [(ngModel)]="property.kitchens" name="kitchens" required />
+      <div class="col-lg-12">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">Country</label>
+              <div class="form-group position-relative">
+                  <select class="form-select form-control ps-5 h-55" aria-label="Default select example">
+                      <option selected class="text-dark">United Kingdom</option>
+                      <option value="1" class="text-dark">United States</option>
+                      <option value="2" class="text-dark">Canada</option>
+                      <option value="3" class="text-dark">France</option>
+                  </select>
+                  <i class="ri-map-2-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="bathrooms" class="form-label">bathrooms</label>
-        <input type="number" id="bathrooms" class="form-control" [(ngModel)]="property.bathrooms" name="bathrooms" required />
+      <div class="col-lg-4">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">Town/City</label>
+              <div class="form-group position-relative">
+                  <select class="form-select form-control ps-5 h-55" aria-label="Default select example">
+                      <option selected class="text-dark">California</option>
+                      <option value="1" class="text-dark">United States</option>
+                      <option value="2" class="text-dark">Canada</option>
+                      <option value="3" class="text-dark">France</option>
+                  </select>
+                  <i class="ri-list-ordered position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="area" class="form-label">area</label>
-        <input type="number" id="area" class="form-control" [(ngModel)]="property.area" name="area" required />
+      <div class="col-lg-4">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">State</label>
+              <div class="form-group position-relative">
+                  <select class="form-select form-control ps-5 h-55" aria-label="Default select example">
+                      <option selected class="text-dark">South poal evenue state 4C</option>
+                      <option value="1" class="text-dark">United States</option>
+                      <option value="2" class="text-dark">Canada</option>
+                      <option value="3" class="text-dark">France</option>
+                  </select>
+                  <i class="ri-font-size position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="country" class="form-label">Country</label>
-        <select id="country" class="form-select" [(ngModel)]="selectedCountry" (change)="onCountryChange(selectedCountry)" name="country" required>
-          <option value="" disabled selected>--Choose Country--</option>
-          <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
-        </select>
+      <div class="col-lg-4">
+          <div class="form-group mb-4">
+              <label class="label text-secondary">Zip Code</label>
+              <div class="form-group position-relative">
+                  <input type="number" class="form-control ps-5 h-55" placeholder="Enter number">
+                  <i class="ri-hashtag position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+              </div>
+          </div>
       </div>
-    </div>
-    
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="state" class="form-label">State</label>
-        <select id="state" class="form-select" [(ngModel)]="selectedState" (change)="onStateChange(selectedState)" name="state" required>
-          <option value="" disabled selected>--Choose State--</option>
-          <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
-        </select>
+      <div class="col-lg-12">
+          <div class="form-group mb-0">
+              <label class="label text-secondary">Order Notes :</label>
+              <div class="form-group position-relative">
+                  <textarea class="form-control ps-5 text-dark" placeholder="Some demo text ... " cols="30" rows="5"></textarea>
+                  <i class="ri-information-line position-absolute top-0 start-0 fs-20 ps-20 pt-2"></i>
+              </div>
+          </div>
       </div>
-    </div>
-    
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="city" class="form-label">City</label>
-        <select id="city" class="form-select" [(ngModel)]="property.city" name="city" required>
-          <option value="" disabled selected>--Choose City--</option>
-          <option *ngFor="let city of cities" [ngValue]="city.name">{{ city.name }}</option>
-        </select>
-      </div>
-    </div>
-    
-
-    <div class="mb-3">
-      <div class="mb-3">
-        <label for="zip" class="form-label">zip</label>
-        <input type="text" id="zip" class="form-control" [(ngModel)]="property.zip" name="zip" required />
-      </div>
-    </div>
-
-
-    <button type="submit" class="btn btn-danger w-100 mt-2">
-      {{iseditmode?'update':'submit'}}
-    </button>
-  </form>
-</div>
+  </div>
+</form>

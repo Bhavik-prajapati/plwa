@@ -4,8 +4,8 @@ import { LoginService } from './login.service';
 import { JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { HeaderComponent } from "../../components/header/header.component";
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
+// import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+// import { GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PaymentService } from './payment.service';
 // import { environment } from '../';
-import { environment } from '../../../environments/environments';
+import { environment } from '../../../environments/environment';
 
 
 declare var Razorpay: any;
