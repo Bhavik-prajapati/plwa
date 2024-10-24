@@ -40,7 +40,9 @@ export class SignupComponent {
   }
 
   register(){
+    
     console.log(this.userdata);
+
     this.signupservice.signupuser(this.userdata).subscribe((res:any)=>{
       console.log(res);
       // localStorage.setItem("token",res.token);
